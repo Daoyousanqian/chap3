@@ -10,7 +10,7 @@ int main(){
 	int targetNum, targetNum1, targetNum2;
 	float appro_pre = 1.0;
 	float appro_aft = 1.0;
-	while ((scanf("%d %d %d", &targetNum, &targetNum1, &targetNum2)) == 1 ){
+	while ((scanf("%d %d %d", &targetNum, &targetNum1, &targetNum2)) != EOF ){
 		
 		if(targetNum < 0)
 			printf("please enter the number that greater than 0");
@@ -59,14 +59,14 @@ void triangle(int a, int b , int c){
 		
 		if(a == b || a== c || b == c)
 		{
-			if(a == b == c)
-				printf("equilateral triangle");
+			if(a == b && a == c && b == c)
+				printf("equilateral triangle\n");
 			else
-				printf("isosceles triangle");
+				printf("isosceles triangle\n");
 			
 		}
 		else
-			printf("ordinary triangle");
+			printf("ordinary triangle\n");
 	}
 	else
 		printf("this is not a triangle \n");
