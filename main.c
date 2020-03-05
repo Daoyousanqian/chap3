@@ -3,6 +3,7 @@
 
 void prime(int num);
 void triangle(int a, int b , int c);
+void copy_n(char dst[], char src[], int n);
 // the main function is used to get the appropriate value square root 
 
 int main(){
@@ -10,6 +11,16 @@ int main(){
 	int targetNum, targetNum1, targetNum2;
 	float appro_pre = 1.0;
 	float appro_aft = 1.0;
+	char str1[20];
+	char dst1[10];
+	char ch;
+	printf("please enter the string\n");
+	scanf("%s",str1 );
+	while((ch = getchar()) !=EOF&& ch != '\n')    // to throw away the left characters
+		;
+	copy_n(dst1,str1,10);
+	printf("the destination array is %s\n", dst1);
+	
 	while ((scanf("%d %d %d", &targetNum, &targetNum1, &targetNum2)) != EOF ){
 		
 		if(targetNum < 0)
@@ -72,5 +83,25 @@ void triangle(int a, int b , int c){
 		printf("this is not a triangle \n");
 	
 	
-	
 }
+
+/*
+**this function is used to copy n characters from sources to destination 
+**
+*/
+void copy_n(char dst[], char src[], int n){
+	
+	int num_dst, num_src;
+	
+	for(num_dst = 0 ; num_dst < n; num_dst++){
+		
+		if(src[num_dst] == NULL)
+			dst[num_dst] = NULL;
+		else
+			dst[num_dst] = src[num_dst];
+	}
+	//printf("the destination array is %s\n", dst[n]);
+}
+
+
+
