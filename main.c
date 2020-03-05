@@ -11,8 +11,9 @@ int main(){
 	int targetNum, targetNum1, targetNum2;
 	float appro_pre = 1.0;
 	float appro_aft = 1.0;
-	char str1[20];
+	
 	char dst1[10];
+	char str1[20];
 	char ch;
 	printf("please enter the string\n");
 	scanf("%s",str1 );
@@ -20,7 +21,7 @@ int main(){
 		;
 	copy_n(dst1,str1,10);
 	printf("the destination array is %s\n", dst1);
-	
+	printf("the destination array is %d, %d\n", &str1[0],&dst1[0]);
 	while ((scanf("%d %d %d", &targetNum, &targetNum1, &targetNum2)) != EOF ){
 		
 		if(targetNum < 0)
