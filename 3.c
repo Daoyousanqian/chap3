@@ -8,6 +8,7 @@ int numArray[] = {1,2,3,4,5};
 int func(void);
 int convert_to_L();
 int security_ch();
+void reverse_bits();
 int main(){
 	int *p = numArray;
 	int i ;
@@ -78,7 +79,8 @@ int main(){
 	**  below is to change the uppercase characters to lowercases.
 	*/
 	//convert_to_L();
-	security_ch();
+	//security_ch();
+	reverse_bits();
 	return True ;
 	
 }
@@ -111,19 +113,31 @@ int security_ch(){
 	
 }
 
-unsigned int reverse_bits(){
+unsigned int reverse_bits1(){
 	
 	int bitArray[32];
 	int value;
 	
 	scanf("%d", &value );
-	for( int i = 0; value != 0, i++ ){
+	for( int i = 0; value != 0; i++ ){
 		
 		bitArray[i] = value % 2; 
 		value /= 2;
 		
 	}
+	return value; 
+}
+
+void reverse_bits(){
+	int value, rev_value= 0;
 	
-	
+	scanf("%d", &value );
+	for (int i = 1; i != 0; i <<1){
+		if(value & 1 )
+			rev_value |= 1;
+		rev_value <<=1; 
+		value >>= 1;
+	}
+	printf("the number is %d\n" , rev_value);
 }
 
