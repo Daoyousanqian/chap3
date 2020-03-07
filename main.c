@@ -15,6 +15,8 @@ int main(){
 	char dst1[10];
 	char str1[20];
 	char ch;
+	printf("please enter the number \n");
+	printf("the count number is: %d\n ", count_one_bits(10));
 	printf("please enter the string\n");
 	scanf("%s",str1 );
 	while((ch = getchar()) !=EOF&& ch != '\n')    // to throw away the left characters
@@ -104,5 +106,16 @@ void copy_n(char dst[], char src[], int n){
 	//printf("the destination array is %s\n", dst[n]);
 }
 
-
+int count_one_bits( unsigned value )
+{
+	int ones;
+    // for loop could be controled by different value 
+	for( ones = 0; value != 0; value >>= 1 )
+	/*
+	** If the low-order bit is a 1, count it.
+	*/
+		if( ( value & 1 ) != 0 )
+		ones += 1;
+	return ones;
+}
 
