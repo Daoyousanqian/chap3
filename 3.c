@@ -111,3 +111,19 @@ int security_ch(){
 	
 }
 
+unsigned int reverse_bits(){
+	
+	int bitArray[32];
+	int value;
+	
+	scanf("%d", &value );
+	for( int i = 0; value != 0, i++ ){
+		
+		bitArray[i] = value % 2; 
+		value /= 2;
+		
+	}
+	
+	
+}
+
