@@ -129,15 +129,20 @@ unsigned int reverse_bits1(){
 }
 
 void reverse_bits(){
-	int value, rev_value= 0;
+	unsigned int value, rev_value= 0;
 	
-	scanf("%d", &value );
-	for (int i = 1; i != 0; i <<1){
+	printf("please enter the value here: \n");
+	scanf("%u", &value );
+	//value = 25;
+	//unsigned int i ;
+	for (unsigned int i = 1; i != 0; i <<=1){
+		rev_value <<=1; 
 		if(value & 1 )
 			rev_value |= 1;
-		rev_value <<=1; 
+		
 		value >>= 1;
 	}
-	printf("the number is %d\n" , rev_value);
+	printf("the number is %u\n" , value);
+	printf("the number is %u\n" , rev_value);
 }
 
