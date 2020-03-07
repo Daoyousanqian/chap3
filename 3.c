@@ -1,8 +1,13 @@
 #include<stdio.h>
+#include<ctype.h>
+#define True   1 
+#define  False 0
 
 int count;
 int numArray[] = {1,2,3,4,5};
 int func(void);
+int convert_to_L();
+int security_ch();
 int main(){
 	int *p = numArray;
 	int i ;
@@ -66,8 +71,15 @@ int main(){
 	//answer = (a=func()) - (b=func() )* (c=func());
 	answer1 = a - b*c;
 	//float num1 = (float)(25/10);
-	printf("the answer number is : %d\n", answer1); // output is 10 = 2-3*4
-	return 1 ;
+	printf("the answer number is : %d\n", answer1); // output is -10 = 2-3*4, could also be 3- 2*4, 4 - 2*3
+	
+	/*
+	**
+	**  below is to change the uppercase characters to lowercases.
+	*/
+	//convert_to_L();
+	security_ch();
+	return True ;
 	
 }
 
@@ -77,3 +89,25 @@ func( void )
 	static int counter = 1; // the static local variables will exist in the whole program
 	return ++counter;
 }
+
+
+int convert_to_L(){
+	int ch;
+	while((ch=getchar()) != EOF)
+		putchar(tolower(ch));         // tolower() from the cytype preprocess. 
+	
+	return True;
+	
+}
+
+int security_ch(){
+	int ch;
+	while((ch=getchar()) != EOF)
+		if('A'<= ch && ch<= 'z' )
+			putchar(ch+13);         // security to the char characters from 'A' to 'z'; 
+		else
+			putchar(ch); 
+	return True;
+	
+}
+
