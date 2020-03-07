@@ -4,6 +4,7 @@
 void prime(int num);
 void triangle(int a, int b , int c);
 void copy_n(char dst[], char src[], int n);
+int count_one_bits( unsigned value );
 // the main function is used to get the appropriate value square root 
 
 int main(){
@@ -23,7 +24,7 @@ int main(){
 		;
 	copy_n(dst1,str1,10);
 	printf("the destination array is %s\n", dst1);
-	printf("the destination array is %d, %d\n", &str1[0],&dst1[0]);
+	printf("the destination array is %s, %s\n", str1,dst1);
 	while ((scanf("%d %d %d", &targetNum, &targetNum1, &targetNum2)) != EOF ){
 		
 		if(targetNum < 0)
@@ -95,14 +96,23 @@ void triangle(int a, int b , int c){
 void copy_n(char dst[], char src[], int n){
 	
 	int num_dst, num_src;
-	
+	int dst_index, src_index;
+	src_index = 0;
+	/*
 	for(num_dst = 0 ; num_dst < n; num_dst++){
 		
-		if(src[num_dst] == NULL)
-			dst[num_dst] = NULL;
+		if(src[num_dst] == 0)
+			dst[num_dst] = 0;
 		else
 			dst[num_dst] = src[num_dst];
-	}
+	}*/
+	
+	for( dst_index = 0; dst_index < n; dst_index += 1 ){
+		dst[dst_index] = src[src_index];
+		if( src[src_index] != 0 )
+			src_index += 1;
+     }
+	
 	//printf("the destination array is %s\n", dst[n]);
 }
 
