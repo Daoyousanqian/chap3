@@ -2,6 +2,9 @@
 #include<ctype.h>
 #define True   1 
 #define  False 0
+#define N_Value 5
+
+
 
 int count;
 int numArray[] = {1,2,3,4,5};
@@ -9,6 +12,10 @@ int func(void);
 int convert_to_L();
 int security_ch();
 void reverse_bits();
+void pointers();
+void init_Array();
+
+
 int main(){
 	int *p = numArray;
 	// p =  12040506;    cannt print anything
@@ -81,7 +88,10 @@ int main(){
 	*/
 	//convert_to_L();
 	//security_ch();
-	reverse_bits();
+	//reverse_bits();
+	//pointers();
+	init_Array();
+	
 	return True ;
 	
 }
@@ -146,4 +156,56 @@ void reverse_bits(){
 	printf("the enter number is %u\n" , value);   // here can not use " %d " to output
 	printf("the number is %u\n" , rev_value);     // here can not use "%d " to output 
 }
+
+void pointers(){
+	
+	int a = 10; 
+	int *b = &a;
+	int **c = &b;  // pointers to pointers  
+	
+	// ++*b ;
+	// (*b)++; 
+	printf("b is address of a  is %d\n", b);
+	++*++b;
+	printf("a number is %d\n", a);
+	// b 
+	printf("b is address of a  is %d\n", b);
+	printf("*b is number of a  is %d\n", *b);
+	
+	// c 
+	printf("c is address  %d\n", c);
+	printf(" *c points to b address  is %d\n", *c);
+	printf(" **c is number of a  is %d\n", **c);
+}
+
+
+int std_strlen(char *strings){
+	int length = 0;
+	
+	while(*strings++ != '\0')       // could be replaced by while((string = *strings++) != '\0'  )
+		length += 1;
+	
+	return length ;
+	
+}
+
+void init_Array(){
+	
+	float values[6];
+	float *vp;
+	
+	for ( vp = &values[0]; vp < &values[N_Value] ;  )       
+		*vp++ = 0;                                                            //  *vp = 0 , vp = vp +1 
+	printf("the first value is is %f\n", values[0] );
+	*vp++ = 2;  	// 
+	* --vp = 4;
+	printf("the value is is %f\n", values[5] );
+	
+	//return True; 
+}
+
+
+
+
+
 
