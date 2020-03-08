@@ -11,13 +11,14 @@ int security_ch();
 void reverse_bits();
 int main(){
 	int *p = numArray;
+	// p =  12040506;    cannt print anything
 	int i ;
 	int a , b , c, d;
 	char a1,a2,a3,a4; 
 	
 	a =  b = 10;
 	for (i = 0 ; i < 4 ; i ++){
-		
+	
 		++count ;
 		
 		printf("the number is : %d\n", count); // output is 1 ,2,3,4
@@ -136,13 +137,13 @@ void reverse_bits(){
 	//value = 25;
 	//unsigned int i ;
 	for (unsigned int i = 1; i != 0; i <<=1){
-		rev_value <<=1; 
-		if(value & 1 )
+		rev_value <<=1;                                       // <<=   left shift 
+		if(value & 1 )                                            
 			rev_value |= 1;
 		
-		value >>= 1;
+		value >>= 1;											// >>= right shift 
 	}
-	printf("the number is %u\n" , value);
-	printf("the number is %u\n" , rev_value);
+	printf("the enter number is %u\n" , value);   // here can not use " %d " to output
+	printf("the number is %u\n" , rev_value);     // here can not use "%d " to output 
 }
 
