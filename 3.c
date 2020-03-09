@@ -42,7 +42,7 @@ void init_Array();
 void new_str1();
 void oper_Str();
 void acc_Str(Simple *cp);
-
+void new_Union();
 
 int main(){
 	int *p = numArray;
@@ -123,7 +123,7 @@ int main(){
 	
 	oper_Str(); 
 	
-	
+	new_Union();
 	
 	return True ;
 	
@@ -302,11 +302,35 @@ void acc_Str(Simple *cp ){
 	
 	printf("it would show the two ways of accessing structure\n");
 	printf("access the structure number by pointer: %d\n", cp-> age);   //  ********* ' . ' and ' -> ' two ways access the member of structure
-	printf("access the structure number by dot: %c\n", (*cp).gender);
+	printf("access the structure number by dot: %c\n", (*cp).gender);   
+	
+	// when structure is used as an arguement. the call-by-value passing of C requires that a copy of the arguement given to the function. It will waste too much time
+	//**** However, when pointer is passed, it is much smaller than the entire struture. 
+	//****** pointers are much more efficient. 
 	
 }
 
 //******************* size_t is like unsigned int , represents it is a non-negative number;
+
+void new_Union(){
+		
+		union {
+			float pi;
+			int i;
+		} fi;
+		
+		fi.pi = 3.1415;                                     // to initialize a union, you have to initialize the first member of the union
+		printf("the union number is %f\n",fi.pi);
+	
+}
+
+
+
+
+
+
+
+
 
 
 
