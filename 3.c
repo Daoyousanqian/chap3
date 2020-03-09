@@ -4,6 +4,31 @@
 #define  False 0
 #define N_Value 5
 
+/*
+**   By this way the declare a structure we can use
+**   Simple x; 
+**   Simple class[10], *z;
+*/
+typedef struct {
+	
+	int age;
+	char gender;
+	float credits; 
+	
+} Simple;                       
+
+/*
+******    in this way to declare new struct 
+******  struct SIMPLE x;   struct SIMPLE student[10]; 
+*/
+struct SIMPLE {
+	
+	int age;
+	char gender;
+	float credits; 
+	
+};
+
 
 
 int count;
