@@ -334,7 +334,9 @@ void *malloc (size_t size);
 
 void free( void  *pointer); 
 
+void *calloc (size_t num_elements, size_t element_size);  // illustrate the number of elements and element size also initialize memory to 0;
 
+void realloc( void *ptr, size_t new_size); // it will change the size of the memory 
 
 
 
