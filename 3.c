@@ -39,7 +39,7 @@ int security_ch();
 void reverse_bits();
 void pointers();
 void init_Array();
-
+void new_str1();
 
 int main(){
 	int *p = numArray;
@@ -116,6 +116,7 @@ int main(){
 	//reverse_bits();
 	//pointers();
 	init_Array();
+	new_str1();
 	
 	return True ;
 	
@@ -252,6 +253,32 @@ reverse_string( char *str )
 		*last_char-- = temp;
 	}
 }
+
+// in this function to show how to define and access the member of structure
+void new_str1(){
+
+	struct COMPLEX {
+		float  number; 
+		int age;
+		long *lp;
+		struct SIMPLE s;
+		struct SIMPLE sa[10];
+		Simple  b[5];
+		struct SIMPLE *SP;
+		
+	};
+	
+	struct COMPLEX comp; // declare a new structure; 
+	
+	comp.number = 30;
+	comp.age = 45;
+	comp.sa[1].gender = 'f';              // short for ******** ((comp.sa)[1]).gender; 
+	comp.sa[2].gender = 'm';
+	printf("to access the age %f\n", comp.number);
+	printf("to access the gender %c\n", ((comp.sa)[1]).gender);
+	
+}
+
 
 
 
