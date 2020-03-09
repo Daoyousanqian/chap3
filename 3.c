@@ -324,14 +324,15 @@ void new_Union(){
 	
 }
 
+/* malloc is used for allocating the memory 
+*********    void *malloc (size_t size);              //  this function will return the addres of memory 
+*********     void free( void  *pointer);               //  it will free the memory 
+*********
+*/
 
+void *malloc (size_t size);  
 
-
-
-
-
-
-
+void free( void  *pointer); 
 
 
 
