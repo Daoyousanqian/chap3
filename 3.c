@@ -330,7 +330,7 @@ void new_Union(){
 *********
 */
 
-void *malloc (size_t size);  
+void *malloc (size_t size);  // return an address;
 
 void free( void  *pointer); 
 
@@ -338,5 +338,14 @@ void *calloc (size_t num_elements, size_t element_size);  // illustrate the numb
 
 void realloc( void *ptr, size_t new_size); // it will change the size of the memory 
 
-
+void new_Malloc(){
+	int *pi;
+	pi = malloc(100);
+	if(pi == NULL){
+		
+		printf("out of the bound of memory\n");
+		exit(1);
+	}
+	
+}
 
