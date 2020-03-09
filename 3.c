@@ -40,6 +40,9 @@ void reverse_bits();
 void pointers();
 void init_Array();
 void new_str1();
+void oper_Str();
+void acc_Str(Simple *cp);
+
 
 int main(){
 	int *p = numArray;
@@ -117,6 +120,10 @@ int main(){
 	//pointers();
 	init_Array();
 	new_str1();
+	
+	oper_Str(); 
+	
+	
 	
 	return True ;
 	
@@ -277,8 +284,29 @@ void new_str1(){
 	printf("to access the age %f\n", comp.number);
 	printf("to access the gender %c\n", ((comp.sa)[1]).gender);
 	
+	struct COMPLEX *sp = &comp;
+	//acc_Str(sp);                               // **** different structure declaration would have a problem. 
+		
 }
 
+void oper_Str(){
+
+		Simple str1 = { 28, 'm', 4.3   };
+		Simple *px = &str1;
+		acc_Str(px);                               // ***** call a function to with the arguement of structure pointer
+	
+}
+
+
+void acc_Str(Simple *cp ){
+	
+	printf("it would show the two ways of accessing structure\n");
+	printf("access the structure number by pointer: %d\n", cp-> age);   //  ********* ' . ' and ' -> ' two ways access the member of structure
+	printf("access the structure number by dot: %c\n", (*cp).gender);
+	
+}
+
+//******************* size_t is like unsigned int , represents it is a non-negative number;
 
 
 
