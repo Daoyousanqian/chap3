@@ -11,6 +11,7 @@
 #define  False 0
 #define N_Value 5
 #define DEBUG 0
+#define SUM(value)   ((value) + (value))
 
 
 /*
@@ -54,8 +55,8 @@ void acc_Str(Simple *cp);
 void new_Union();
 void new_Malloc();
 void * alloc (size_t size);
-
-
+void test_Macro( );
+int sum1(int val);
 
 int main(){
 	int *p = numArray;
@@ -139,6 +140,8 @@ int main(){
 	new_Union();
 	
 	new_Malloc();
+	
+	test_Macro();
 	
 	return True ;
 	
@@ -411,9 +414,39 @@ alloc (size_t size){
 }
 
 
+/*******
+********** below function shows the side effect of the macros
+********** when the argument is used more than once like ' i++ '
+********** it will change the orginal meaning 
+*/
 
+void test_Macro( ) {
+	
+	int i = 0;
+	int result = 0; 
+	int array[10] = {1,1,1,1,1,1,1,1,1,1};
+	
+	while (i < 10){
+		result += SUM(array[i++]);  
+		printf("the number of i is : %d\n", i);    
+		// ***********the print number is 2, 4, 6, 8 , 10,  means i++ increament did two times.
+	}
+	
+	i = 0;
+	while (i < 10){
+		result += sum1(array[i++]);  
+		printf("the number of i is : %d\n", i);
+		// ***********the print number is 1, 2, 3,4,5,6,7,8,9,10, when use function it only pass the copy. 
+	}
+	
+	
+}
 
-
+int sum1(int val){
+	
+	return (val + val) ;
+	
+}
 
 
 
