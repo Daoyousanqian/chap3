@@ -45,6 +45,9 @@ void oper_Str();
 void acc_Str(Simple *cp);
 void new_Union();
 void new_Malloc();
+void * alloc (size_t size);
+
+
 
 int main(){
 	int *p = numArray;
@@ -202,16 +205,16 @@ void pointers(){
 	
 	// ++*b ;
 	// (*b)++; 
-	printf("b is address of a  is %d\n", b);
+	printf("b is address of a  is %p\n", b);
 	++*++b;
 	printf("a number is %d\n", a);
 	// b 
-	printf("b is address of a  is %d\n", b);
+	printf("b is address of a  is %p\n", b);
 	printf("*b is number of a  is %d\n", *b);
 	
 	// c 
-	printf("c is address  %d\n", c);
-	printf(" *c points to b address  is %d\n", *c);
+	printf("c is address  %p\n", c);
+	printf(" *c points to b address  is %p\n", *c);
 	printf(" **c is number of a  is %d\n", **c);
 }
 
@@ -343,16 +346,20 @@ void new_Union(){
 //void realloc( void *ptr, size_t new_size); // it will change the size of the memory 
 
 void new_Malloc(){
+	
 	int *pi, *array, *arr_pointer, i ;
+	int m_num = 100;
 	pi = malloc(100);
-	printf("the allocation memory is %d\n", pi);
+	printf("the allocation memory is %p\n", pi);       // printf ("%p", pointer) is used to print the address . 
 	if(pi == NULL){
 		
 		printf("out of the bound of memory\n");
 		exit(1);
 	}
 	
-	array = malloc(25 * sizeof( int ));      // this could run on different OS as the length is different on OS;
+	//array = malloc(25 * sizeof( int ));      // this could run on different OS as the length is different on OS;
+	//array = alloc (25 * sizeof( int ));
+	array = alloc (m_num);
 	arr_pointer = array;
 	for( i = 0; i < 25; i += 1)
 	{
@@ -370,7 +377,25 @@ void new_Malloc(){
 
 }
 
-
+/*
+******** THIS function is used to check the returned address, if it is NULL then failed will be passed.
+********
+*/
+void *
+alloc (size_t size){
+	
+	void *new_memory;
+	new_memory = malloc( size );
+	if(new_memory == NULL ){
+		
+		printf("memory allocation failed, out of boudary!!\n");
+		exit(1);
+		
+	}
+	
+	return new_memory;
+	
+}
 
 
 
