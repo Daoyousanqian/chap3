@@ -57,6 +57,8 @@ void new_Malloc();
 void * alloc (size_t size);
 void test_Macro( );
 int sum1(int val);
+int compared_int( void const *a, void const * b);
+void new_dynamic_m();
 
 int main(){
 	int *p = numArray;
@@ -142,6 +144,8 @@ int main(){
 	new_Malloc();
 	
 	test_Macro();
+	
+	new_dynamic_m();
 	
 	return True ;
 	
@@ -452,7 +456,11 @@ int compared_int( void const *a, void const * b){
 	
 	register int const *pa = a; 
 	register int const *pb = b; 
-	return *pa > *pb ? 1 : *pa < *pb ? -1 : 0;
+	return *pa > *pb ? -1 : *pa < *pb ? 1 : 0;  
+	/*
+	******   a > b return 1;
+	******   a < b return -1; a = b return 0  
+	*/
 	
 }
 
@@ -465,6 +473,31 @@ void new_dynamic_m(){
 	/*
 	***** use scanf to enter the number of the 
 	*/
+	printf("please enter how number of the array:\n");
+	if((scanf("%d", &n_value)) != 1 || n_value < 0){
+		
+		printf("the input is incorrect\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	// check memory allocation address 
+	array = malloc( n_value * sizeof(int));
+	if (array == NULL ){
+		
+		printf("memory allocation failed \n");
+		exit(EXIT_FAILURE);
+		
+	}
+	
+	for (i = 9; i >= 0 ; i --)
+		array[i] = i;
+	
+	qsort(array, n_value, sizeof(int), compared_int);
+	i = 0;
+	while(i < n_value)
+		printf("the array number is %d\n", array[i++]);
+	free(array);
+	
 	
 }
 
