@@ -448,9 +448,25 @@ int sum1(int val){
 	
 }
 
+int compared_int( void const *a, void const * b){
+	
+	register int const *pa = a; 
+	register int const *pb = b; 
+	return *pa > *pb ? 1 : *pa < *pb ? -1 : 0;
+	
+}
 
-
-
+void new_dynamic_m(){
+	
+	int *array;
+	int n_value;
+	int i;
+	
+	/*
+	***** use scanf to enter the number of the 
+	*/
+	
+}
 
 
 
