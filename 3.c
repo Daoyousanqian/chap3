@@ -1,9 +1,17 @@
+#ifndef _HEADERNAME_H
+#define _HEADERNAME_H  1
+
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
+
+#endif
+
 #define True   1 
 #define  False 0
 #define N_Value 5
+#define DEBUG 0
+
 
 /*
 **   By this way the declare a structure we can use
@@ -372,7 +380,7 @@ void new_Malloc(){
 	//printf("the allocation memory is %d\n", sizeof(int));
 	printf("the number before memory free %d\n", *array);  // test the value before and after the memory allocation 
 	free( pi );
-	free( array );
+	free( array );                                                                     // realloc could be used to free the end of the memory. 
 	printf("the number after memory free %d\n", *array);
 
 }
@@ -393,9 +401,22 @@ alloc (size_t size){
 		
 	}
 	
+	#if DEBUG
+		printf("the memory address is : %p\n", new_memory);
+	
+	#endif
+	
 	return new_memory;
 	
 }
+
+
+
+
+
+
+
+
 
 
 
