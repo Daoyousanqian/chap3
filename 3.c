@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<ctype.h>
+#include<stdlib.h>
 #define True   1 
 #define  False 0
 #define N_Value 5
@@ -43,6 +44,7 @@ void new_str1();
 void oper_Str();
 void acc_Str(Simple *cp);
 void new_Union();
+void new_Malloc();
 
 int main(){
 	int *p = numArray;
@@ -124,6 +126,8 @@ int main(){
 	oper_Str(); 
 	
 	new_Union();
+	
+	new_Malloc();
 	
 	return True ;
 	
@@ -330,22 +334,44 @@ void new_Union(){
 *********
 */
 
-void *malloc (size_t size);  // return an address;
+//void *malloc (size_t size);  // return an address;
 
-void free( void  *pointer); 
+//void free( void  *pointer); 
 
-void *calloc (size_t num_elements, size_t element_size);  // illustrate the number of elements and element size also initialize memory to 0;
+//void *calloc (size_t num_elements, size_t element_size);  // illustrate the number of elements and element size also initialize memory to 0;
 
-void realloc( void *ptr, size_t new_size); // it will change the size of the memory 
+//void realloc( void *ptr, size_t new_size); // it will change the size of the memory 
 
 void new_Malloc(){
-	int *pi;
+	int *pi, *array, *arr_pointer, i ;
 	pi = malloc(100);
+	printf("the allocation memory is %d\n", pi);
 	if(pi == NULL){
 		
 		printf("out of the bound of memory\n");
 		exit(1);
 	}
 	
+	array = malloc(25 * sizeof( int ));      // this could run on different OS as the length is different on OS;
+	arr_pointer = array;
+	for( i = 0; i < 25; i += 1)
+	{
+		
+		* arr_pointer ++ = 0;            // make a copy of the pointer then the pointe plus one; 
+	
+	}
+	
+	
+	//printf("the allocation memory is %d\n", sizeof(int));
+	printf("the number before memory free %d\n", *array);  // test the value before and after the memory allocation 
+	free( pi );
+	free( array );
+	printf("the number after memory free %d\n", *array);
+
 }
+
+
+
+
+
 
