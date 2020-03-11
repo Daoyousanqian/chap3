@@ -59,6 +59,8 @@ void test_Macro( );
 int sum1(int val);
 int compared_int( void const *a, void const * b);
 void new_dynamic_m();
+void store_Manage();
+Creat_rec * creat_subassy_rec (int n_parts);
 
 int main(){
 	int *p = numArray;
@@ -146,6 +148,8 @@ int main(){
 	test_Macro();
 	
 	new_dynamic_m();
+	
+	store_Manage();
 	
 	return True ;
 	
@@ -503,8 +507,9 @@ void new_dynamic_m(){
 
 void store_Manage(){
 	
-		
-	
+	Creat_rec *instrument1 = creat_subassy_rec(10);
+	printf("the total number of the assmebly is : %d\n", instrument1-> info.subassy -> n_parts);
+	printf("the SN of  assmeblyis : %s\n", instrument1-> info.subassy -> part -> partno);
 	
 }
 	
@@ -517,9 +522,30 @@ creat_subassy_rec (int n_parts){
 	if(new_rec != NULL){
 		
 		// get the new structure address then allocate the memory of 
-		
-	}
-
+		new_rec -> info.subassy = malloc(sizeof (Subassyinfo));
+		if (new_rec-> info.subassy != NULL ){
+			
+		// get the sub structure address successfully. 
+			
+			new_rec-> info.subassy -> part = malloc(sizeof( struct SUBASSPART ));
+			if(new_rec-> info.subassy -> part != NULL){
+				
+				// get memory allocation on the part structure 
+				new_rec-> info.subassy -> n_parts = n_parts;
+				//new_rec-> info.subassy -> part -> partno = {"2020031220"};
+				new_rec->type = SUBASSY;
+				return new_rec; 
+				
+			}
+			
+			// if failed then free the allocated memory
+			free (new_rec-> info.subassy);
+		}
+		// if failed then free the allocated memory
+		free(new_rec)	;
+	}	
+	
+	return new_rec;
 
 }	
 	
