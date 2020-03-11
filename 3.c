@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
-
+#include"str.h"
 #endif
 
 #define True   1 
@@ -498,8 +498,36 @@ void new_dynamic_m(){
 		printf("the array number is %d\n", array[i++]);
 	free(array);
 	
+}
+
+
+void store_Manage(){
+	
+		
+	
 	
 }
+	
+Creat_rec *
+creat_subassy_rec (int n_parts){
+
+	Creat_rec * new_rec;
+	
+	new_rec  = malloc(sizeof (Creat_rec) );
+	if(new_rec != NULL){
+		
+		// get the new structure address then allocate the memory of 
+		
+	}
+
+
+}	
+	
+
+
+
+
+
 
 
 

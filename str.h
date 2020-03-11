@@ -30,3 +30,28 @@ typedef struct {
 	} *part;
 	
 } Subassyinfo;
+
+typedef struct  {
+	
+	char partno[10];
+	int quan;
+	enum { PART, SUBASSY} type;
+	union {
+		
+		Partinfo *part ;
+		Subassyinfo *subassy;
+		
+	} info;
+	
+	
+} Creat_rec; 
+
+
+
+
+
+
+
+
+
+
