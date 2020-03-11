@@ -5,6 +5,7 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include"str.h"
+#include<string.h>
 #endif
 
 #define True   1 
@@ -530,9 +531,11 @@ creat_subassy_rec (int n_parts){
 			new_rec-> info.subassy -> part = malloc(sizeof( struct SUBASSPART ));
 			if(new_rec-> info.subassy -> part != NULL){
 				
+				
 				// get memory allocation on the part structure 
 				new_rec-> info.subassy -> n_parts = n_parts;
-				//new_rec-> info.subassy -> part -> partno = {"2020031220"};
+				strcpy(new_rec-> info.subassy -> part -> partno , "2020031220");
+				// for the string here can not use assignment like new_rec-> info.subassy -> part -> partno = "2020031220";
 				new_rec->type = SUBASSY;
 				return new_rec; 
 				
