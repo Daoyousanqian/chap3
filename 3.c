@@ -552,7 +552,7 @@ creat_subassy_rec (int n_parts){
 
 }	
 	
-void creat_link_list(){
+void creat_link_list(Node *root , int n_value){
 	
 	Node *previous;
 	Node *new;
