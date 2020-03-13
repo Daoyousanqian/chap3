@@ -554,7 +554,7 @@ creat_subassy_rec (int n_parts){
 	
 // insert a new value to 	
 	
-void creat_link_list(Node *current , int new_value){
+void insert_link_list(Node *current , int new_value){
 	
 	Node *previous;
 	Node *new;
@@ -582,7 +582,10 @@ void creat_link_list(Node *current , int new_value){
 }
 
 
-
+void creat_new_list(root){
+	
+	
+}
 
 
 
