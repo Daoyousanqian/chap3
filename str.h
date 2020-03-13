@@ -47,6 +47,12 @@ typedef struct  {
 } Creat_rec; 
 
 
+typedef struct NODE {
+
+	struct NODE *link ;
+	int 				 value; 
+	
+} Node; 
 
 
 
