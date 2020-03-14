@@ -570,20 +570,21 @@ void insert_link_list(Node *current , int new_value){
 	
 	new = (Node *)malloc( sizeof( Node ) );
 	if( new == NULL )
-	return FALSE;
+	return False;
 	new->value = new_value;
 	/*
 	** Insert the new node into the list, and return TRUE.
 	*/
 	new->link = current;
 	previous->link = new;
-	return TRUE;
+	return True;
 	
 }
 
 
-void creat_new_list(root){
+void creat_new_list(int n_value){
 	
+	Node **root; 
 	
 }
 
