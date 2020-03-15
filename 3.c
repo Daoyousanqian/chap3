@@ -62,6 +62,8 @@ int compared_int( void const *a, void const * b);
 void new_dynamic_m();
 void store_Manage();
 Creat_rec * creat_subassy_rec (int n_parts);
+Node * creat_new_list(int n_value);
+void list_exam1();
 
 int main(){
 	int *p = numArray;
@@ -151,6 +153,8 @@ int main(){
 	new_dynamic_m();
 	
 	store_Manage();
+	
+	list_exam1();
 	
 	return True ;
 	
@@ -582,11 +586,47 @@ void insert_link_list(Node *current , int new_value){
 }
 
 
-void creat_new_list(int n_value){
+Node * creat_new_list(int n_value){
 	
-	Node **root; 
+	
+	Node *root; 
+	Node *new;
+	Node *previous;
+	int n = 1; 
+	root = malloc(sizeof(Node));
+	if (root == NULL )
+	{
+			// if malloc failed then return NULL address; 
+		return NULL;
+		
+	}
+	root -> value = 0;
+	previous = root; 
+	
+	while (new = malloc(sizeof(Node)), new != NULL, n < n_value){
+		previous -> link = new; 
+		previous -> value = n;
+		previous = new; 
+		n += 1 ;
+	}
+	
+	return root;
+}
+
+void list_exam1(){
+	
+	Node * root = creat_new_list(10);
+	
+	printf("the second valus is %d\n", root->link-> link -> link -> value);
 	
 }
+
+
+
+
+
+
+
 
 
 
